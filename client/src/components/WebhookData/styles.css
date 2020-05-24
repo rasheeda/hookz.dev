@@ -1,0 +1,23 @@
+.webhook-data-content {
+    font-size: 15px;
+}
+
+.webhook-data-content h3 {
+    background-color: rgb(29, 26, 26);
+    font-size: medium;
+    display: inline-block;
+    padding: 3px;
+    margin-top: 4px;
+}
+
+td {
+    border: 1px dashed;
+    padding: 10px;
+}
+
+.selected-index {
+    font-size: 23px;
+    font-weight: bolder;
+    padding: 2px;
+    margin-bottom: 5px;
+}

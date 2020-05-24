@@ -1,0 +1,47 @@
+{
+    "name": "hookz",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@blueprintjs/core": "^3.24.0",
+        "@fortawesome/fontawesome-svg-core": "^1.2.26",
+        "@fortawesome/free-solid-svg-icons": "^5.12.0",
+        "@fortawesome/react-fontawesome": "^0.1.8",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/user-event": "^7.1.2",
+        "antd": "^3.26.2",
+        "axios": "^0.19.0",
+        "http-proxy-middleware": "^0.20.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-ga": "^2.7.0",
+        "react-json-view": "^1.19.1",
+        "react-router-dom": "^5.1.2",
+        "react-scripts": "^3.4.0",
+        "react-syntax-highlighter": "^11.0.2",
+        "react-time-ago": "^5.0.7",
+        "wretch": "^1.6.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

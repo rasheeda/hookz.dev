@@ -1,0 +1,16 @@
+body {
+    font-family: Lucida Sans Typewriter,
+        Lucida Console,
+        monaco,
+        Bitstream Vera Sans Mono,
+        monospace;
+
+}
+
+.about-content {
+    width: 50%;
+    margin: 0px auto 0px auto;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #cfcfd1;
+}

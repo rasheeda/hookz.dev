@@ -1,0 +1,52 @@
+version: '3'
+services: 
+    client:
+        build:
+            context: ./client
+            dockerfile: Dockerfile
+        container_name: hookz.dev.client
+        restart: always
+        ports: 
+            - "3000:3000"
+        volumes: 
+            - ./client:/usr/src/app/hookz/client
+        command: ["npm", "start"]
+        links: 
+            - api
+        networks:
+            - hookzdevnetwork
+    api:
+        build:
+            context: ./api
+            dockerfile: Dockerfile
+        container_name: hookz.dev.api
+        restart: always
+        ports:
+            - "5000:5000"
+        volumes: 
+            - ./api:/usr/src/app/hookz/api
+        depends_on: 
+            - db
+        networks: 
+            - hookzdevnetwork
+    db:
+        image: mysql/mysql-server
+        restart: always
+        container_name: hookz.dev.mysql
+        ports: 
+            - "4306:3306"
+        environment: 
+            MYSQL_DATABASE: webhookz
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_PASSWORD: password
+            MYSQL_USER: hookz_mysql_user
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        volumes: 
+            - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+        networks: 
+            - hookzdevnetwork
+networks: 
+    hookzdevnetwork:
+        driver: bridge
+    

@@ -1,0 +1,134 @@
+.webhook-item-date {
+    font-size: small;
+    margin-left: 3px;
+}
+
+.webhook-item-http-version {
+    font-size: x-small;
+    color: aqua;
+}
+
+.webhook-item-method {
+    font-size: small;
+    background: grey;
+    padding: 3px;
+    margin-bottom: 3px;
+}
+
+.webhook-item-method-post {
+    font-size: small;
+    background: #12cad6;
+    padding: 3px;
+    margin-bottom: 3px;
+    color: black;
+    font-weight: bold;
+}
+
+.webhook-item-method-get {
+    font-size: small;
+    background: #50d890;
+    padding: 3px;
+    margin-bottom: 3px;
+    color: black;
+    font-weight: bold;
+}
+
+.webhook-item-method-put {
+    font-size: small;
+    background: violet;
+    padding: 3px;
+    margin-bottom: 3px;
+    color: black;
+    font-weight: bold;
+}
+
+.webhook-item-method-delete {
+    font-size: small;
+    background: #ff6666;
+    padding: 3px;
+    margin-bottom: 3px;
+    color: black;
+    font-weight: bold;
+}
+
+.request-syntax {
+    font-size: 15px;
+}
+
+.counter {
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+.selected {
+    background-color: #222831;
+}
+
+.request-total {
+    margin-bottom: 10px;
+    font-style: italic;
+    justify-content: center;
+    margin-left: 15px;
+    font-size: 15px;
+}
+
+.request-total span {
+    padding: 3px;
+    font-weight: bolder;
+}
+
+.webhooks-nav {
+    grid-area: nav;
+    min-width: 150px;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    overflow-y: auto;
+    position: fixed;
+}
+
+.webhooks-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.webhooks-nav a {
+    color: aquamarine;
+}
+
+.webhooks-nav li {
+    padding: 8px 8px 15px;
+}
+
+.webhooks-nav li:hover {
+    background-color: #222821;
+}
+
+.webhooks_content {
+    grid-area: content;
+    width: 850px;
+    margin-left: 230px;
+}
+
+.delete-webhook-data {
+    margin-bottom: 15px;
+}
+
+.c_button {
+    border: 2px solid #3f4046;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #f68787;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.c_button:hover {
+    color: #fff;
+}
+
+.error-alert {
+    text-align: center;
+    color: #f68787;
+}
