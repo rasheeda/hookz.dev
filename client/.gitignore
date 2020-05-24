@@ -104,4 +104,4 @@ dist
 
 .DS_Store
 
-package-lock.json
+# package-lock.json
