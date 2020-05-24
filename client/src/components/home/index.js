@@ -29,7 +29,7 @@ function Home() {
             </h1>
             <span className="d-block mb-5 caption">
                 To get started, click the button below to generate a URL to test
-                your webhook requests.
+                your requests.
             </span>
             <button onClick={createWebhook} className="btn-custom">
                 <span>Create New Webhook</span>

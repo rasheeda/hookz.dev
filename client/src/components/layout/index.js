@@ -79,13 +79,16 @@ function Layout() {
                                             <a href="/about">About</a>
                                         </li>
                                         <li>
-                                            <a href="https://github.com/rasheeda">
+                                            <a href="/privacy">Privacy</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://github.com/rasheeda/hookz.dev">
                                                 Github
                                             </a>
                                         </li>
                                         <li className="cta">
                                             <a href="#" onClick={createWebhook}>
-                                                New Webhook
+                                                New Hook
                                             </a>
                                         </li>
                                     </ul>
