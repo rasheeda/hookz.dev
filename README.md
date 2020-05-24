@@ -1,8 +1,24 @@
 # Overview
 [hookz.dev](https://hookz.dev) is a free and open source web tool to help developers quickly test webhooks or catch and inspect all http requests.
 
-The front and backend are split. The repository for the frontend service can be found [here](https://github.com/rasheeda/hookz.dev.frontend).
-The frontend relies on the apis provided by the backend to create and read hookz data.
+The frontend code is in the `client` and backend in `api` folder. 
+
+# Screenshots
+![hookz.dev Homepage][hookz_home]
+
+[hookz_home]: /screenshots/hookz.dev.home.png
+
+
+![hookz.dev Hookz Data][hookz_data]
+
+[hookz_data]: /screenshots/hookz.dev.data.png
+
+## Frontend (Client)
+
+The application is built in [reactjs](https://reactjs.org/) and relies on APIs provided by the backend service to create and display hookz data.
+
+## Backend (REST API)
+
 The backend of hookz.dev is built in nodejs, leveraging the expressjs framework. The database system used is mysql.
 
 ## Node Packages Used
@@ -13,10 +29,10 @@ The backend of hookz.dev is built in nodejs, leveraging the expressjs framework.
 - [mysql](https://www.npmjs.com/package/mysql) : A node.js driver for mysql.
 - [uniqid](https://www.npmjs.com/package/uniqid) : Unique ID Generator
 
-## Database Structure
+### Database Structure
 The database structure for hookz.dev is very simple. There are two tables. The hookz table and the hookz_data table. You can rename the tables to your preference.
 
-### hookz table structure
+#### hookz table structure
 |Column|Datatype|Description|
 |------|--------|-----------|
 |id |INT|primary key (auto increment)|
@@ -24,7 +40,7 @@ The database structure for hookz.dev is very simple. There are two tables. The h
 |created_at|Timestamp||
 |updated_at|Timestamp||
 
-## hookz data table structure
+### hookz data table structure
 |Column|Datatype|Description|
 |------|--------|-----------|
 |id |INT|primary key (auto increment)|
@@ -33,7 +49,7 @@ The database structure for hookz.dev is very simple. There are two tables. The h
 |created_at|Timestamp||
 |updated_at|Timestamp||
 
-### Example of Entire Database mysqldump
+#### Example of Entire Database mysqldump
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -58,15 +74,32 @@ The database structure for hookz.dev is very simple. There are two tables. The h
 </mysqldump>
 ```
 
-# Screenshots
-![hookz.dev Homepage][hookz_home]
+#### Database Migration Script
+The init migration script to create the tables can be found in `/docker_compose/mysql/init.sql`.
 
-[hookz_home]: /screenshots/hookz.dev.home.png
+```sql
+DROP TABLE IF EXISTS `hookz_data`;
+CREATE TABLE `hookz_data` (
+  `id` int(200) NOT NULL AUTO_INCREMENT,
+  `webhook` varchar(255) NOT NULL,
+  `data` longtext NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `webhook` (`webhook`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-![hookz.dev Hookz Data][hookz_data]
-
-[hookz_data]: /screenshots/hookz.dev.data.png
+DROP TABLE IF EXISTS `hookz`;
+CREATE TABLE `hookz` (
+  `id` int(200) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `name` (`name`),
+  CONSTRAINT `hookz_ibfk_1` FOREIGN KEY (`name`) REFERENCES `hookz_data` (`webhook`) 
+  ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+```
 
 # License
 (The MIT License)
