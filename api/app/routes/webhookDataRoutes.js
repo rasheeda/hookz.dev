@@ -1,5 +1,6 @@
 module.exports = app => {
-    var webhookData = require("../controller/webhookDataController");
+    const webhookData = require("../controller/webhookDataController");
+    const rateLimit = require("express-rate-limit");
 
     app.get(`/hookz/data`, async (req, res) => {
         return res.status(200).send({ 1: "test!" });
@@ -7,7 +8,13 @@ module.exports = app => {
 
     app.route("/hookz/:webhook/data").get(webhookData.getDataByWebhook);
 
-    app.route("/a/:webhook").all(webhookData.create);
+    const createWebhookDataRequestLimit = rateLimit({
+        windowMs: 30 * 60 * 1000,
+        max: 500,
+        message: "Too many requests created from this IP. You can make 500 post requests within 30 minutes. Please try again in 30 minutes"
+    });
+
+    app.route("/a/:webhook").all(createWebhookDataRequestLimit, webhookData.create);
 
     app.route("/d/:webhook/data").delete(webhookData.deleteDataByWebhook);
 };
