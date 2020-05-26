@@ -1,7 +1,7 @@
 const webhookDataModel = require("../model/webhookDataModel");
 
 exports.create = function(req, res) {
-    webhookDataModel.checkWebhookValidity(req.params.webhook, function(
+  webhookDataModel.checkWebhookValidity(req.params.webhook, function(
       err,
       count
   ) {
