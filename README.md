@@ -1,3 +1,5 @@
+# !! No Longer Maintained !!
+
 # Overview
 [hookz.dev](https://hookz.dev) is a free and open source web tool to help developers quickly test webhooks or catch and inspect all http requests.
 
